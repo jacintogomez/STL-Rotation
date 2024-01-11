@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D STL Display</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.138.0/build/three.module.js",
+                "OrbitControls": "https://unpkg.com/three@0.138.0/examples/jsm/controls/OrbitControls.js",
+                "STLLoader": "https://unpkg.com/three@0.138.0/examples/jsm/loaders/STLLoader.js"
+            }
+        }
+    </script>
+</head>
+<style>
+    body{
+        background-color: black;
+        color: white;
+        margin: 0;
+        overflow: hidden;
+    }
+</style>
+<body>
+<h1>USS Enterprise STL</h1>
+<div id="model-container"></div>
+<script type="module" src="stlload.js"></script>
+</body>
+</html>
