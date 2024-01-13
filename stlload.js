@@ -19,6 +19,7 @@ var mesh
 loader.load('/enterprise.stl',function(geometry){
     const material=new THREE.MeshBasicMaterial({color:0x00ff00});
     mesh=new THREE.Mesh(geometry,material);
+    mesh.rotation.x=-Math.PI/4;
     scene.add(mesh);
     mesh.material = new THREE.MeshPhongMaterial({ color: 'blueviolet' });
 });
@@ -33,14 +34,11 @@ scene.add(dirlighting);
 
 console.log("lighting set")
 
-cam.position.z = 30;
+cam.position.z = 35;
 
 function animate() {
     requestAnimationFrame(animate);
-
-    mesh.rotation.x+=0.01;
-    mesh.rotation.y=Math.PI/2;
-    mesh.rotation.z=-Math.PI/2;
+    mesh.rotation.z+=0.01;
     rend.render(scene, cam);
 }
 
