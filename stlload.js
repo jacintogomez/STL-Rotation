@@ -10,18 +10,19 @@ console.log("scene set")
 const rend=new THREE.WebGLRenderer();
 rend.setSize(window.innerWidth,window.innerHeight);
 //document.body.appendChild(rend.domElement);
-document.getElementById("model-container").appendChild(rend.domElement);
+document.getElementById("mc1").appendChild(rend.domElement);
 
 console.log("appended to HTML element")
 
 const loader=new STLLoader();
 var mesh
+
 loader.load('/enterprise.stl',function(geometry){
     const material=new THREE.MeshBasicMaterial({color:0x00ff00});
     mesh=new THREE.Mesh(geometry,material);
     mesh.rotation.x=-Math.PI/4;
     scene.add(mesh);
-    mesh.material = new THREE.MeshPhongMaterial({ color: 'blueviolet' });
+    mesh.material = new THREE.MeshPhongMaterial({ color: 'blue' });
 });
 
 console.log("STL loaded with geometry and material")
@@ -34,7 +35,7 @@ scene.add(dirlighting);
 
 console.log("lighting set")
 
-cam.position.z = 35;
+cam.position.z=35;
 
 function animate() {
     requestAnimationFrame(animate);

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D STL Display</title>
+    <title>Lithophanes</title>
     <script type="importmap">
         {
             "imports": {
@@ -13,18 +13,23 @@
             }
         }
     </script>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+    </style>
 </head>
-<style>
-    body{
-        background-color: black;
-        color: white;
-        margin: 0;
-        overflow: hidden;
-    }
-</style>
 <body>
-<h1 style="text-align:center">USS Enterprise</h1>
-<div id="model-container"></div>
-<script type="module" src="stlload.js"></script>
+<h1>Lithophane Display Case</h1>
+<div class="model-container" id="mc1">
+    <script type="module" src="stlload.js"></script>
+</div>
+<div class="model-container" id="mc2">
+    <script type="module" src="stlload.js"></script>
+</div>
 </body>
 </html>
