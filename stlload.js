@@ -4,7 +4,7 @@ import {STLLoader} from '/node_modules/three/examples/jsm/loaders/STLLoader.js';
 const scenes=[];
 const cams=[];
 const rends=[];
-const numcontainers=3;
+const numcontainers=6;
 
 for(let i=0;i<numcontainers;i++){
     const scene=new THREE.Scene();
@@ -19,7 +19,7 @@ for(let i=0;i<numcontainers;i++){
     rends.push(rend);
 }
 
-const stlfiles=['/enterprise.stl','/enterprise.stl','/enterprise.stl'];
+const stlfiles=['/enterprise.stl','/enterprise.stl','/enterprise.stl','/enterprise.stl','/enterprise.stl','/enterprise.stl'];
 const meshes=[];
 
 for(let i=0;i<numcontainers;i++){
