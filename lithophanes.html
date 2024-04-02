@@ -15,21 +15,37 @@
     </script>
     <style>
         body{
-            background-color: black;
-            color: white;
+            background-color: white;
+            color: black;
             margin: 0;
             overflow: hidden;
             text-align: center;
         }
+        .mod-row{
+            display: flex;
+            margin: 2%;
+            background-color: gray;
+        }
+        .model-container{
+            flex: 1;
+            margin: 3%;
+            background-color: black;
+        }
+        {}
     </style>
 </head>
 <body>
 <h1>Lithophane Display Case</h1>
-<div class="model-container" id="mc1">
-    <script type="module" src="stlload.js"></script>
-</div>
-<div class="model-container" id="mc2">
-    <script type="module" src="stlload.js"></script>
+<div class="mod-row">
+    <div class="model-container" id="mc1">
+        <script type="module" src="stlload.js"></script>
+    </div>
+    <div class="model-container" id="mc2">
+        <script type="module" src="stlload.js"></script>
+    </div>
+    <div class="model-container" id="mc3">
+        <script type="module" src="stlload.js"></script>
+    </div>
 </div>
 </body>
 </html>
