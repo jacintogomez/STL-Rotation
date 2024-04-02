@@ -4,11 +4,19 @@ import {STLLoader} from '/node_modules/three/examples/jsm/loaders/STLLoader.js';
 const scenes=[];
 const cams=[];
 const rends=[];
-const numcontainers=6;
+const base='/stls/'
+const stlfiles=[fix('french03'),fix('enterprise'),fix('kelvin'),fix('heraldsquare'),fix('mothersday'),fix('rigalfamily')];
+const flips=[]
+
+function fix(filename){return '/stls/'+filename+'.stl';}
+
+const numcontainers=stlfiles.length;
+
+if(numcontainers!==stlfiles.length){alert('Number of containers does not match number of .stl files');}
 
 for(let i=0;i<numcontainers;i++){
     const scene=new THREE.Scene();
-    const cam=new THREE.PerspectiveCamera(90,window.innerWidth/window.innerHeight,1,1000);
+    const cam=new THREE.PerspectiveCamera(80,window.innerWidth/window.innerHeight,1,1000);
     cam.position.set(0,0,10);
     const rend=new THREE.WebGLRenderer();
     rend.domElement.style.width='100%';
@@ -19,7 +27,6 @@ for(let i=0;i<numcontainers;i++){
     rends.push(rend);
 }
 
-const stlfiles=['/enterprise.stl','/enterprise.stl','/enterprise.stl','/enterprise.stl','/enterprise.stl','/enterprise.stl'];
 const meshes=[];
 
 for(let i=0;i<numcontainers;i++){
@@ -27,7 +34,7 @@ for(let i=0;i<numcontainers;i++){
     loader.load(stlfiles[i],function(geometry){
         const material=new THREE.MeshPhongMaterial({color:'blue'});
         const mesh=new THREE.Mesh(geometry,material);
-        mesh.rotation.x=-Math.PI/4;
+        mesh.rotation.x=0;
         scenes[i].add(mesh);
         meshes.push(mesh);
     });
