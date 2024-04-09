@@ -5,7 +5,14 @@ const scenes=[];
 const cams=[];
 const rends=[];
 const base='/stls/'
-const stlfiles=[fix('french03'),fix('enterprise'),fix('kelvin'),fix('heraldsquare'),fix('mothersday'),fix('rigalfamily')];
+const stlfiles=[
+    fix('rigalfamily'),
+    fix('rigalfamily'),
+    fix('rigalfamily'),
+    fix('rigalfamily'),
+    fix('rigalfamily'),
+    fix('rigalfamily')
+];
 const flips=[]
 
 function fix(filename){return '/stls/'+filename+'.stl';}
@@ -17,7 +24,8 @@ if(numcontainers!==stlfiles.length){alert('Number of containers does not match n
 for(let i=0;i<numcontainers;i++){
     const scene=new THREE.Scene();
     const cam=new THREE.PerspectiveCamera(80,window.innerWidth/window.innerHeight,1,1000);
-    cam.position.set(0,0,10);
+    //cam.position.set(0,0,10);
+    cam.position.set(50,0,0);
     const rend=new THREE.WebGLRenderer();
     rend.domElement.style.width='100%';
     rend.domElement.style.height='100%';
@@ -58,7 +66,7 @@ for(let i=0;i<numcontainers;i++){cams[i].position.z=35;}
 function animate(){
     requestAnimationFrame(animate);
     meshes.forEach(mesh=>{
-        mesh.rotation.z+=0.01;
+        mesh.rotation.z+=0.00;
     });
     rends.forEach((rend,i)=>{
         rend.render(scenes[i],cams[i]);
