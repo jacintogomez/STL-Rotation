@@ -23,9 +23,10 @@ if(numcontainers!==stlfiles.length){alert('Number of containers does not match n
 
 for(let i=0;i<numcontainers;i++){
     const scene=new THREE.Scene();
-    const cam=new THREE.PerspectiveCamera(80,window.innerWidth/window.innerHeight,1,1000);
+    const cam=new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,1,1000);
     //cam.position.set(0,0,10);
-    cam.position.set(50,0,0);
+    cam.position.set(0,0,100);
+    cam.rotation.set(0,0,0);
     const rend=new THREE.WebGLRenderer();
     rend.domElement.style.width='100%';
     rend.domElement.style.height='100%';
@@ -42,7 +43,8 @@ for(let i=0;i<numcontainers;i++){
     loader.load(stlfiles[i],function(geometry){
         const material=new THREE.MeshPhongMaterial({color:'blue'});
         const mesh=new THREE.Mesh(geometry,material);
-        mesh.rotation.x=0;
+        mesh.rotation.x=-Math.PI/2;
+        mesh.position.y=-50;
         scenes[i].add(mesh);
         meshes.push(mesh);
     });
@@ -61,12 +63,12 @@ for(let i=0;i<numcontainers;i++){
     dirlightings.push(dirlightings);
 }
 
-for(let i=0;i<numcontainers;i++){cams[i].position.z=35;}
+//for(let i=0;i<numcontainers;i++){cams[i].position.z=35;}
 
 function animate(){
     requestAnimationFrame(animate);
     meshes.forEach(mesh=>{
-        mesh.rotation.z+=0.00;
+        mesh.rotation.z+=0.01;
     });
     rends.forEach((rend,i)=>{
         rend.render(scenes[i],cams[i]);
